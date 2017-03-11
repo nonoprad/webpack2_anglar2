@@ -1,0 +1,16 @@
+.btn-group-vertical {
+    position:fixed;
+    transition: all linear 0.5s;
+
+}
+.btn-group-vertical > .btn:first-child:not(:last-child),
+.btn-group-vertical > .btn:not(:first-child):not(:last-child),
+.btn-group-vertical > .btn:last-child:not(:first-child)
+{
+    border-radius: 30px;
+    height: 60px;
+    margin-top: 15px;
+    width: 60px;
+    padding: 5px;
+}
+
