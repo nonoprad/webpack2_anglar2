@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
+    "heroku-postbuild": "webpack -p --progress",
     "start": "webpack-dev-server",
     "test": "karma start ./karma.config.js"
   },
