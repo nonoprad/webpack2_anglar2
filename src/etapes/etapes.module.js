@@ -10,9 +10,7 @@ etapeModule.directive('etapes', function(){
     });
 etapeModule.controller('etapesController', function($scope){
 
-    window.onbeforeunload = angular.bind(this, function(){
-        sessionStorage.removeItem("id_token");
-    });
+
 
     window.onscroll = angular.bind(this, function() {
         $scope.showEtapes = true;

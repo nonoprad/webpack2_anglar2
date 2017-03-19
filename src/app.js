@@ -10,6 +10,22 @@ import './etapes/etapes.module';
 angular.module('app',[uibootstrap, $sanitize, $animate, 'module.etape'])
     .controller('appController',function ($scope){
      $scope.status = {'open': false };
+
+     window.onload = angular.bind(this, function(){
+         if (sessionStorage.getItem("id_token") == undefined){
+             console.log("Ce token est a creer ca undefined");
+             sessionStorage.setItem("id_token", Math.floor(Math.random() * 6) + 1);
+         }
+     });
+
+    window.onbeforeunload = angular.bind(this, function(){
+        if (sessionStorage.getItem("id_token")){
+            console.log("Ce token est a supprimmer");
+            sessionStorage.removeItem("id_token");
+        }
+    });
+
+
     $scope.showEtapes = false;
      $scope.groups = [
             {
