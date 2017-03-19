@@ -20,7 +20,7 @@ module.exports = {
         filename: "bundle.js", // string
         // the filename template for entry chunks
 
-        publicPath: "/assets/", // string
+        publicPath: "/", // string
         // the url to the output directory resolved relative to the HTML page
 
         library: "MyLibrary", // string,
@@ -36,38 +36,14 @@ module.exports = {
         // configuration regarding modules
 
         rules: [
-            // rules for modules (configure loaders, parser options, etc.)
-
-            { test: /\.js$/, exclude: /node_modules/, use: "babel-loader" },
-
-
-            {
-                test: "\.html$",
-
-                use: [
-                    // apply multiple loaders and options
-                    "htmllint-loader",
-                    {
-                        loader: "html-loader",
-                        options: {
-                            /* ... */
-                        }
-                    }
-                ]
-            },
-            {
-                test: /.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    loader: "css-loader"
-                }),
-            },
-            { test: /\.svg$/, loader: 'url-loader?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]' },
-            { test: /\.woff$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },
-            { test: /\.woff2$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=public/fonts/[name].[ext]' },
-            { test: /\.[ot]tf$/, loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=public/fonts/[name].[ext]' },
-            { test: /\.eot$/, loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=public/fonts/[name].[ext]' }
-
+            { test: /\.js$/, exclude: /node_modules/, use: "babel-loader"},
+            { test: /\.html$/, use: ["html-loader"] },
+            { test: /.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: "css-loader"}) },
+            { test: /\.svg$/, use: 'url-loader?limit=65000&mimetype=image/svg+xml&name=[name].[ext]' },
+            { test: /\.woff$/, use: 'url-loader?limit=65000&mimetype=application/font-woff&name=[name].[ext]' },
+            { test: /\.woff2$/, use: 'url-loader?limit=65000&mimetype=application/font-woff2&name=[name].[ext]' },
+            { test: /\.[ot]tf$/, use: 'url-loader?limit=65000&mimetype=application/octet-stream&name=[name].[ext]' },
+            { test: /\.eot$/, use: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=[name].[ext]' }
         ],
 
         /* Advanced module configuration (click to show) */

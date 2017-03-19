@@ -5,11 +5,14 @@ etapeModule.directive('etapes', function(){
         return {
             restrict:'E',
             controllerDirectives: 'etapesController',
-            template: require("ng-cache-loader!./etapes.template.html"),
+            template: require('./etapes.template.html'),
         }
     });
 etapeModule.controller('etapesController', function($scope){
 
+    window.onbeforeunload = angular.bind(this, function(){
+        sessionStorage.removeItem("id_token");
+    });
 
     window.onscroll = angular.bind(this, function() {
         $scope.showEtapes = true;
@@ -22,7 +25,7 @@ etapeModule.controller('etapesController', function($scope){
 
 
     function changePrimaryButton(eID){
-        $scope.groups.forEach(group => group.currentClass='btn');
+        $scope.groups.forEach(g => g.currentClass='btn');
         $scope.groups[eID].currentClass= "btn btn-primary";
 
     }

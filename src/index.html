@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test avec Webpack</title>
-    <script type="application/javascript" src="/assets/bundle.js"></script>
-    <link rel="stylesheet" type="text/css" href="/assets/main.css">
-</head>
-<body ng-app="app">
-<div id="content" ng-controller="appController">
-<nav class="navbar navbar-inverse">
-    <a class="navbar-brand" href="#">Home</a>
-    <form  class="navbar-form navbar-right" ng-submit="login()">
-        <div class="form-group">
-            <input type="text" id="username" ng-model="credential.username" class="form-control" placeholder="Identifiant" />
-            <input type="password" id="password" ng-model="credential.password" class="form-control" placeholder="" />
-        </div>
-        <button type="submit" class="btn btn-success">Login</button>
-    </form>
-</nav>
-<etapes></etapes>
-    <div>
-        <uib-accordion close-others="oneAtATime" >
-            <div ng-repeat="groupe in groups" uib-accordion-group class="panel-default" is-open="groupe.open">
-                <uib-accordion-heading>
-                    <div id="{{groupe.id}}"></div>
-                    {{groupe.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': groupe.open, 'glyphicon-chevron-right': !groupe.open}"></i>
-                </uib-accordion-heading>
-                <form id="form_{{groupe.id}}" >
-                    <input type="text" ng-model="groupe.content" id="text-{{groupe.id}}" /><input type="submit" value="MAJ" />
-                    <div>
-                        {{groupe.content}}
+    <head>
+        <meta charset="UTF-8">
+        <title>Test avec Webpack</title>
+        <script type="application/javascript" src="bundle.js"></script>
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body ng-app="app">
+        <div id="content" ng-controller="appController">
+            <nav class="navbar navbar-inverse">
+                <a class="navbar-brand" href="#">Home</a>
+                <form  class="navbar-form navbar-right" ng-submit="login()">
+                    <div class="form-group">
+                        <input type="text" id="username" ng-model="credential.username" class="form-control" placeholder="Identifiant" />
+                        <input type="password" id="password" ng-model="credential.password" class="form-control" placeholder="" />
                     </div>
+                    <button type="submit" class="btn btn-success">Login</button>
                 </form>
+            </nav>
+            <etapes></etapes>
+            <uib-accordion close-others="oneAtATime" >
+                <div ng-repeat="groupe in groups" uib-accordion-group class="panel-default" is-open="groupe.open">
+                    <uib-accordion-heading>
+                        <div id="{{groupe.id}}"></div>
+                        {{groupe.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': groupe.open, 'glyphicon-chevron-right': !groupe.open}"></i>
+                    </uib-accordion-heading>
+                    <form id="form_{{groupe.id}}" >
+                        <input type="text" ng-model="groupe.content" id="text-{{groupe.id}}" /><input type="submit" value="MAJ" />
+                        <div>
+                            {{groupe.content}}
+                        </div>
+                    </form>
 
-            </div>
-        </uib-accordion>
-
-    </div>
-</div>
-</body>
+                </div>
+            </uib-accordion>
+        </div>
+    </body>
 </html>
