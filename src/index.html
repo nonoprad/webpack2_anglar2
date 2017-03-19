@@ -20,9 +20,8 @@
             </nav>
             <etapes></etapes>
             <uib-accordion close-others="oneAtATime" >
-                <div ng-repeat="groupe in groups" uib-accordion-group class="panel-default" is-open="groupe.open">
+                <div id="pannel_{{groupe.id}}" ng-repeat="groupe in groups" uib-accordion-group class="panel-default" is-open="groupe.open">
                     <uib-accordion-heading>
-                        <div id="{{groupe.id}}"></div>
                         {{groupe.title}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': groupe.open, 'glyphicon-chevron-right': !groupe.open}"></i>
                     </uib-accordion-heading>
                     <form id="form_{{groupe.id}}" >
