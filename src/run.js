@@ -7,4 +7,7 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+
+//electronjs a tester pour faire une desktop application
 app.listen(8080);
+
